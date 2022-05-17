@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
+        <!-- fillAfter true means that end state of animation is maintained-->
+    <translate
+        android:duration = "2000"
+        android:fromXDelta="0%p"
+        android:fromYDelta="0%p"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:toXDelta="0%p"
+        android:toYDelta="50%p"
+        />
+
+    <!--
+     from invisible state to visible... use alpha
+     from alpha 0.0 means not visible
+     from alpha 1.0 means visible
+    -->
+    <alpha
+        android:duration="2000"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+</set>
