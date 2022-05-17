@@ -123,6 +123,8 @@
                     android:id="@+id/et_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:inputType="text"
                     android:textColor="@color/grey_900"
                     android:textSize="@dimen/_15sdp"/>
@@ -171,6 +173,8 @@
                     android:id="@+id/et_cooking_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:inputType="text"
                     android:textColor="@color/grey_900"
                     android:textSize="@dimen/_15sdp"/>
@@ -186,7 +190,7 @@
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:hint="@string/lbl_category"
+                android:hint="@string/lbl_direction_to_cook"
                 app:hintTextColor="@color/blue_grey_700"
                 app:layout_constraintTop_toBottomOf="@+id/til_cooking_time">
 
@@ -215,7 +219,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </ScrollView>
 
