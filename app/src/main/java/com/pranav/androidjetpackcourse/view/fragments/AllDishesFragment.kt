@@ -2,14 +2,21 @@ package com.pranav.androidjetpackcourse.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.pranav.androidjetpackcourse.R
+import com.pranav.androidjetpackcourse.application.FavDishApplication
 import com.pranav.androidjetpackcourse.databinding.FragmentAllDishesBinding
 import com.pranav.androidjetpackcourse.view.activities.AddUpdateDishActivity
+import com.pranav.androidjetpackcourse.view.adapters.FavDishAdapter
+import com.pranav.androidjetpackcourse.viewmodel.FavDishViewModel
+import com.pranav.androidjetpackcourse.viewmodel.FavDishViewModelFactory
 import com.pranav.androidjetpackcourse.viewmodel.HomeViewModel
 
 class AllDishesFragment : Fragment() {
@@ -19,35 +26,47 @@ class AllDishesFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
-    private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentAllDishesBinding? = null
+    private lateinit var mBinding: FragmentAllDishesBinding
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private val mFavDishViewModel: FavDishViewModel by viewModels {
+        FavDishViewModelFactory((requireActivity().application as FavDishApplication).repository)
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
                              ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        mBinding = FragmentAllDishesBinding.inflate(inflater,container,false)
 
-        _binding = FragmentAllDishesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return mBinding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mBinding.rvDishesList.layoutManager = GridLayoutManager(requireActivity(),2)
+        val favDishAdapter = FavDishAdapter(this@AllDishesFragment)
+        mBinding.rvDishesList.adapter = favDishAdapter
+
+        mFavDishViewModel.allDishesList.observe(viewLifecycleOwner){
+            dishes->
+            dishes.let {
+                if(it.isNotEmpty()){
+                    mBinding.rvDishesList.visibility=View.VISIBLE
+                    mBinding.tvNoDishesAddedYet.visibility=View.GONE
+                    favDishAdapter.dishesList(it)
+                }
+                else{
+                    mBinding.rvDishesList.visibility=View.GONE
+                    mBinding.tvNoDishesAddedYet.visibility=View.VISIBLE
+                }
+            }
+        }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_all_dishes,menu)

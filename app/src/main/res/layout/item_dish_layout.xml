@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="@dimen/_5sdp"
+    android:elevation="@dimen/_5sdp"
+    app:cardUseCompatPadding="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_dish_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_margin="@dimen/_1sdp"
+            android:contentDescription="@string/image_contentDescription"
+            android:scaleType="fitXY"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dish_title"
+            android:layout_margin="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            tools:text="Dish Title"
+            android:layout_gravity="bottom|center_horizontal"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete_icon"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/ic_delete"
+            android:layout_gravity="bottom|end" />
+
+    </FrameLayout>
+
+
+</androidx.cardview.widget.CardView>

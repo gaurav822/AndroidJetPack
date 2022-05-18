@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Fav Dish App</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    
+    <string name="title_all_dishes">All Dishes</string>
+    <string name="title_favourite_dishes">Favourite</string>
+    <string name="title_random_dish">Random Dish</string>
+    
     <string name="splash_screen_title">Fav Dish</string>
     <string name="add_dish">Add Dish</string>
     <string name="lbl_title">Title</string>
@@ -18,5 +20,16 @@
     <string name="title_select_dish_type">SELECT DISH TYPE</string>
     <string name="title_select_dish_category">SELECT DISH CATEGORY</string>
     <string name="title_select_dish_cooking_time">SELECT DISH COOKING TIME</string>
+
+
+    <string name="err_msg_select_dish_image">Please select Dish Image</string>
+    <string name="err_msg_select_title">Please select Dish Title</string>
+    <string name="err_msg_select_category">Please select Dish Category</string>
+    <string name="err_msg_select_type">Please select Dish Type</string>
+    <string name="err_msg_select_ingredients">Please select Dish Ingredients</string>
+    <string name="err_msg_select_dish_cooking_time">Please select Dish Cooking Time</string>
+    <string name="err_msg_select_dish_direction">Please select Dish Direction</string>
+    <string name="label_no_dishes_added_yet">No Dishes Added Yet</string>
+    <string name="image_contentDescription">Image Description</string>
 
 </resources>
