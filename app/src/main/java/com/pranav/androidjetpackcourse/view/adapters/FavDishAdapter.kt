@@ -18,7 +18,7 @@ class FavDishAdapter(private val fragment:Fragment) : RecyclerView.Adapter<FavDi
     class ViewHolder(view:ItemDishLayoutBinding): RecyclerView.ViewHolder(view.root) {
         val ivDishImage = view.ivDishImage
         val tvTitle = view.tvDishTitle
-        val deleteIcon = view.deleteIcon
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,9 +34,6 @@ class FavDishAdapter(private val fragment:Fragment) : RecyclerView.Adapter<FavDi
             .load(eachDish.image)
             .into(holder.ivDishImage)
         holder.tvTitle.text= eachDish.title
-        holder.deleteIcon.setOnClickListener {
-            Toast.makeText(fragment.context,"Delete Icon Clicked",Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun getItemCount(): Int {

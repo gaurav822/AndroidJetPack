@@ -71,7 +71,6 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
 
         setUpActionBar()
         mBinding.ivAddDishImage.setOnClickListener(this)
-
         mBinding.etType.setOnClickListener(this)
         mBinding.etCategory.setOnClickListener(this)
         mBinding.etCookingTime.setOnClickListener(this)
@@ -86,8 +85,6 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
             onBackPressed()
         }
     }
-
-
 
     private fun customImageSelectionDialog(){
         val dialog = Dialog(this)

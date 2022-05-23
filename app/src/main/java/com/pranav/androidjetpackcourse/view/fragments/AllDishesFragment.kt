@@ -32,8 +32,6 @@ class AllDishesFragment : Fragment() {
         FavDishViewModelFactory((requireActivity().application as FavDishApplication).repository)
     }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
